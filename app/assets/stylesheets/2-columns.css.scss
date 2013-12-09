@@ -2,7 +2,7 @@
 //= require_self
 //= require home
 //= require pages
-//= require markdown
+//= require entries
 
 .lf { float:left }
 .rt { float:right }
@@ -65,20 +65,3 @@ div#container {
     }
   }
 }
-
-div.welcome {
-  color:#999;
-  font-size: 14px;
-  line-height: 20px;
-
-  p {
-    margin-bottom: 15px;
-  }
-
-  a.res_icon {
-    width: 45px;
-    height: 57px;
-    margin-left: 20px;
-  }
-}
-

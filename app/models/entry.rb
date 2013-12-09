@@ -6,4 +6,8 @@ class Entry < ActiveRecord::Base
   validates :user, :presence => true, :associated => true
   validates :slug, :title, :content, :presence => true
   validates :slug, :uniqueness => { :case_sensitive => false }
+
+  def to_param
+    self.slug
+  end
 end

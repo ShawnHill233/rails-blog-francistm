@@ -13,11 +13,28 @@
 
 ActiveRecord::Schema.define(:version => 20131209140559) do
 
+  create_table "attachments", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "file_key"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "post_id"
+  end
+
   create_table "entries", :force => true do |t|
-    t.text     "slug"
+    t.string   "slug"
     t.string   "title"
     t.text     "content"
     t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "entries", ["slug"], :name => "index_posts_on_slug", :unique => true
+
+  create_table "links", :force => true do |t|
+    t.string   "site_url"
+    t.string   "site_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -30,5 +47,7 @@ ActiveRecord::Schema.define(:version => 20131209140559) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

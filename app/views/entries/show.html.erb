@@ -1,0 +1,20 @@
+<div class="entries_show">
+  <div id="post_wrap">
+    <div class="title"><%= @entry.title -%></div>
+    <div>
+      <div class="meta rt">
+        <div class="username"><%= @entry.user.username -%></div>
+        发表于
+        <div class="datetime"><%= @entry.created_at.strftime("%Y年%m月%d日 %H:%M") -%></div>
+      </div>
+
+      <div class="clear"></div>
+
+      <div id="mkd_wrap" class="content mkd"></div>
+      <textarea id="mkd_src" class="mkd_src_wrap"><%= raw @entry.content.html_safe -%></textarea>
+    </div>
+  </div>
+</div>
+
+<% content_for :page_title do %><%= @entry.title %><% end %>
+<% content_for :jquery_ready do %>;$("#mkd_wrap").toMarkdown({ "markdown_wrap" : "#mkd_src" });<% end %>

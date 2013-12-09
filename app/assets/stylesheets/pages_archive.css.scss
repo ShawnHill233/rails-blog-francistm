@@ -1,0 +1,20 @@
+.pages_archive {
+  ul.archives {
+    li.archive_row {
+      padding: 6px 0;
+      line-height: 14px;
+
+      div.meta {
+        color: #aaa;
+        font-size: 12px;
+      }
+
+      div.title {
+        a {
+          color: #666;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

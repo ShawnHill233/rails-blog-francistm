@@ -33,5 +33,14 @@
 
     <div class="clear"></div>
   </div> <!-- container end -->
+
+  <% if content_for?(:jquery_ready) %>
+    <script type="text/javascript">
+      jQuery(function($) {
+          <%= yield :jquery_ready %>
+      });
+    </script>
+  <% end %>
+
 </body>
 </html>

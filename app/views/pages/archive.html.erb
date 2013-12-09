@@ -1,0 +1,18 @@
+<div class="pages_archive">
+  <h1 class="page_title">日志归档</h1>
+  <div class="page_description">有史以来所有的日志，按照创建时间倒序排列</div>
+
+  <ul class="archives">
+    <% @entries.each do |entry| %>
+
+      <li class="archive_row">
+        <div class="title lf"><%= link_to entry.title, entry -%></div>
+        <div class="meta art rt"><%= entry.created_at.strftime "%Y年%m月%d日 %H:%M" -%></div>
+        <div class="clear"></div>
+      </li>
+
+    <% end %>
+  </ul>
+</div>
+
+<% content_for :page_title do %>日志归档<% end %>
