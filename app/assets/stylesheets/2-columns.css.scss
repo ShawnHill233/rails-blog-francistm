@@ -1,0 +1,84 @@
+//= require reset
+//= require_self
+//= require home
+//= require pages
+//= require markdown
+
+.lf { float:left }
+.rt { float:right }
+.art { text-align:right }
+
+.mt5 { margin-top:5px }
+.mt10 { margin-top:10px }
+.mt25 { margin-top:25px }
+
+.pt10 { padding-top:10px }
+.pt50 { padding-top:50px }
+.pt100 { padding-top:100px }
+.pt150 { padding-top:150px }
+
+.clear { clear:both }
+
+a {
+  color: #31699a;
+  text-decoration: none;
+}
+
+div#container {
+  width: 720px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  font-family: helvetica;
+
+  div.sidebar {
+    width: 180px;
+
+    ul {
+      li {
+        margin: 10px auto;
+
+        a {
+          color: #969696;
+        }
+      }
+
+      li.active {
+        a {
+          color: #3159aa;
+        }
+      }
+    }
+  }
+
+  div.content_container {
+    width: 540px;
+
+    h1.page_title {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    div.page_description {
+      color: #999;
+      font-size: 12px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+div.welcome {
+  color:#999;
+  font-size: 14px;
+  line-height: 20px;
+
+  p {
+    margin-bottom: 15px;
+  }
+
+  a.res_icon {
+    width: 45px;
+    height: 57px;
+    margin-left: 20px;
+  }
+}
+

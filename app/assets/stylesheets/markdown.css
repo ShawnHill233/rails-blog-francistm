@@ -1,0 +1,90 @@
+.mkd {
+    color: #666;
+    font-weight: lighter;
+}
+
+.mkd a {
+    color: #31699A;
+}
+
+.mkd p {
+    font-size: 16px;
+    margin: 10px auto;
+    line-height: 25px;
+}
+
+.mkd h1 {
+    font-size: 22px;
+}
+
+.mkd h2 {
+    font-size: 20px;
+}
+
+.mkd h3 {
+    font-size: 18px;
+}
+
+.mkd h4 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mkd img {
+  margin: 15px auto;
+}
+
+.mkd h1,
+.mkd h2,
+.mkd h3,
+.mkd h4 {
+    margin: 15px auto;
+}
+
+.mkd p code,
+.mkd ol code,
+.mkd ul code {
+    font-size: 12px;
+    padding: 2px 4px;
+    margin: 2px 4px;
+    background: #eee;
+    border-radius: 2px;
+    display: inline-block;
+    font-family: monospace, serif;
+}
+
+.mkd pre {
+    overflow: auto;
+    font-size: 12px;
+    padding: 5px 8px;
+    background: #eee;
+    line-height: 16px;
+    border-radius: 2px;
+    font-family: monospace, serif;
+}
+
+.mkd ul {
+    padding-left: 15px;
+    list-style: square outside;
+}
+
+.mkd ol {
+    padding-left: 22px;
+    list-style: decimal outside;
+}
+
+.mkd ul li,
+.mkd ol li {
+    margin: 10px auto;
+}
+
+.mkd blockquote {
+    background: #eee;
+}
+
+.mkd blockquote p {
+    font-size: 12px;
+    padding: 2px 15px;
+    margin: 5px auto;
+    font-family: monospace, serif;
+}

@@ -1,0 +1,15 @@
+<div class="home_index">
+  <h1 class="page_title">欢迎页</h1>
+  <div class="page_description">欢迎访问我的Blog。</div>
+
+  <div class="welcome">
+    <p>因为种种原因，从第一篇日志算起，到目前目前一共有 33 篇日志了，你可以在左侧的<%= link_to "归档日志", pages_archive_path %>中找到他们。</p>
+    <p>这里的内容乱七八糟，也可能会包含一些令人反感的内容。所以，浏览时需谨慎。</p>
+    <p>因为是我私人的Blog，所以这里的内容不确保中立性，大部分内容都带有严重的主观色彩，望见谅。</p>
+    <p class="art">
+    <%= link_to "http://rubyonrails.org", :class => "res_icon", :rel => "nofollow" do %>
+      <%= image_tag "rails-logo.png" %>
+    <% end %>
+    </p>
+  </div>
+</div>

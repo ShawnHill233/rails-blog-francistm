@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= "#{yield(:page_title)} | " if content_for?(:page_title) %>Francis' Blog</title>
+  <%= stylesheet_link_tag "2-columns", :media => "all" %>
+  <%= javascript_include_tag "2-columns" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="container" class="pt50">
+    <div class="lf sidebar">
+      <div class="logo">
+        <%= link_to root_path do %>
+          <%= image_tag "logo.png" %>
+        <% end %>
+      </div>
+
+      <div class="navigator mt25">
+        <%= render_list do |item|
+
+          item << link_to("首页", root_path)
+          item << link_to("Wiki", "http://wiki.francistm.com")
+          item << link_to("日志归档", pages_archive_path)
+          item << link_to("友情链接", pages_links_path)
+
+        end %>
+      </div>
+    </div> <!-- sidebar end -->
+
+    <div class="content_container rt">
+      <%= yield %>
+    </div> <!-- content_container end -->
+
+    <div class="clear"></div>
+  </div> <!-- container end -->
+</body>
+</html>
