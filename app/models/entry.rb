@@ -6,6 +6,11 @@ class Entry < ActiveRecord::Base
   validates :user, :presence => true, :associated => true
   validates :slug, :title, :content, :presence => true
   validates :slug, :uniqueness => { :case_sensitive => false }
+  
+  def to_html
+    return "" if content.blank?
+    Kramdown::Document.new(content).to_html
+  end
 
   def to_param
     self.slug
