@@ -1,0 +1,11 @@
+rvm:
+  - "1.9.3"
+  - "2.0.0"
+language: ruby
+services: mysql
+script:
+  - bundle exec rspec spec
+before_script:
+  - mysql -e "create database francis_blog_test"
+  - mv ./config/database-travis.yml ./config/database.yml
+  - bundle exec rake db:test:prepare
