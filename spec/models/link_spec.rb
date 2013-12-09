@@ -16,7 +16,7 @@ describe Link do
 
     it "invalid if site_name duplicated" do
       link = create(:link)
-      expect(build(:link, :site_name => link.name)).to have(1).errors_on(:site_name)
+      expect(build(:link, :site_name => link.site_name)).to have(1).errors_on(:site_name)
     end
   end
 end
