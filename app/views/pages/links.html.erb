@@ -1,1 +1,14 @@
 <% content_for :page_title do %>友情链接<% end %>
+
+<div class="pages_links">
+  <h1 class="page_title">友情链接</h1>
+  <div class="page_description">注：排名<em>不分</em>先后</div>
+
+  <ul class="link_list">
+    <% @links.each do |link| %>
+      <li class="link_item">
+        <%= link_to "#{link.site_name} - #{link.site_url}", link.site_url %>
+      </li>
+    <% end %>
+  </ul>
+</div>

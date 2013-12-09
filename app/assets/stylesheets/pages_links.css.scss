@@ -1,0 +1,16 @@
+div.pages_links {
+  ul.link_list {
+    list-style: square outside;
+
+    li.link_item {
+      padding: 6px 0;
+      margin-left: 15px;
+
+      a {
+        color: #666;
+        padding: 6px 0;
+        line-height: 14px;
+      }
+    }
+  }
+}
