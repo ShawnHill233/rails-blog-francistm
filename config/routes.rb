@@ -4,6 +4,14 @@ FrancisBlog::Application.routes.draw do
     get "archive"
   end
 
+  namespace :admin do
+    get "/" => "admin#index"
+
+    get "login" => "sessions#new"
+    post "login" => "sessions#create"
+    delete "logout" => "sessions#destroy"
+  end
+
   root :to => "home#index"
   get "feed" => "home#feed"
 
