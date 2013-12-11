@@ -6,6 +6,7 @@ gem "rails", "3.2.14"
 gem "mysql2", "0.3.11"
 gem "sorcery", "~> 0.8.2"
 gem "kramdown", "~> 1.3.0"
+gem "bootstrap-sass", "~> 3.0.3.0"
 
 group :test do
   gem "faker", "~> 1.1.2"
@@ -14,7 +15,6 @@ end
 group :assets do
   gem "uglifier", ">= 1.0.3"
   gem "sass-rails",   "~> 3.2.3"
-  gem "coffee-rails", "~> 3.2.1"
 end
 
 group :production do

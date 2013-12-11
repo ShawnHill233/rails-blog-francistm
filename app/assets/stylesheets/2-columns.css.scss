@@ -1,8 +1,8 @@
-//= require reset
+//= require application/reset
+//= require application/home
+//= require application/pages
+//= require application/entries
 //= require_self
-//= require home
-//= require pages
-//= require entries
 
 .lf { float:left }
 .rt { float:right }
