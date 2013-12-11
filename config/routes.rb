@@ -10,6 +10,9 @@ FrancisBlog::Application.routes.draw do
     get "login" => "sessions#new"
     post "login" => "sessions#create"
     delete "logout" => "sessions#destroy"
+
+    resources :attachments
+    resources :entries, :expect => [:show]
   end
 
   root :to => "home#index"

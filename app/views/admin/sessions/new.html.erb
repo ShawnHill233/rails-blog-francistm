@@ -1,0 +1,29 @@
+<% content_for :page_title do %>登录<% end %>
+
+<%= form_for :session, html: { role: "form", class: "form-horizontal login-form" } do |f| %>
+
+  <% unless flash.empty? %>
+    <%= render_flash flash %>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :username, "用户名", class: "col-xs-2 control-label" %>
+    <div class="col-xs-10">
+      <%= f.text_field :username, class: "form-control", placeholer: "Email或用户名" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, "密码", class: "col-xs-2 control-label" %>
+    <div class="col-xs-10">
+      <%= f.password_field :password, class: "form-control", placeholer: "Email或用户名" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-10 col-xs-offset-2">
+      <%= f.submit "登录", class: "col-xs-3 btn btn-default" %>
+    </div>
+  </div>
+
+<% end %>

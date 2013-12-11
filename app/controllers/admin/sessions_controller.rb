@@ -15,7 +15,7 @@ class Admin::SessionsController < AdministratorController
       flash[:success] = "登录成功"
       redirect_to admin_path
     else
-      flash[:error] = "登录失败，用户名/密码错误"
+      flash[:danger] = "登录失败，用户名/密码错误"
       redirect_to admin_login_path
     end
   end
