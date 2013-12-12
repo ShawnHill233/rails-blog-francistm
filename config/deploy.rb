@@ -19,7 +19,7 @@ end
 namespace :deploy do
   task :stop do
     on roles(:app), :in => :sequence, :wait => 5 do
-      execute "service puma stop"
+      execute "pumactl -P #{current_path}/tmp/puma/pid stop"
     end
   end
 
@@ -28,7 +28,7 @@ namespace :deploy do
       # link puma state files from shared path
       execute "if [ ! -e '#{shared_path}/puma' ]; then mkdir -p #{shared_path}/puma; fi"
       execute "if [ ! -e '#{current_path}/tmp/puma' ]; then ln -s #{shared_path}/puma #{current_path}/tmp; fi"
-      execute "service puma start"
+      execute "pumactl -P #{current_path}/tmp/puma/pid start"
     end
   end
 
