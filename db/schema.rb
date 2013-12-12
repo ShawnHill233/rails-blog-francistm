@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131210021606) do
+ActiveRecord::Schema.define(:version => 20131212094018) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20131210021606) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "entries", ["slug"], :name => "index_entries_on_slug", :unique => true, :length => {"slug"=>255}
+
   create_table "links", :force => true do |t|
     t.text     "site_url"
     t.text     "site_name"
@@ -44,5 +46,8 @@ ActiveRecord::Schema.define(:version => 20131210021606) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end
