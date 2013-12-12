@@ -11,8 +11,8 @@ FrancisBlog::Application.routes.draw do
     post "login" => "sessions#create"
     delete "logout" => "sessions#destroy"
 
-    resources :entries, expect: [:show]
-    resources :attachments, expect: [:update]
+    resources :entries, except: [:show]
+    resources :attachments, except: [:update]
   end
 
   root :to => "home#index"

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Admin::EntriesController do
-
   before :each do
     @user = create(:user)
     login_user @user
@@ -28,7 +27,7 @@ describe Admin::EntriesController do
       entry = create(:entry)
       put :update, :id => entry, :entry => { :content => "something_new" }
 
-      expect(assigns(:entry).content).eq "something_new"
+      expect(assigns(:entry).content).to eq "something_new"
       expect(response).to redirect_to admin_entries_path
     end
 
@@ -42,7 +41,7 @@ describe Admin::EntriesController do
       entry = create(:entry)
       delete :destroy, id: entry
 
-      expect(entry.persisted?).to be_false
+      expect(entry.new_record?).to be_false
       expect(response).to redirect_to admin_entries_path
     end
   end
