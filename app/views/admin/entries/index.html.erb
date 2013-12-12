@@ -2,22 +2,26 @@
   <%= render_flash flash %>
 <% end %>
 
-<%= grid(@entries_grid, show_filters: :always) do |g|
+<%= grid(@entries_grid) do |g|
 
-  g.column name: "#" do |entry|
+  g.column name: "#", attribute: "id" do |entry|
     entry.id
   end
 
-  g.column name: "Slug" do |entry|
+  g.column name: "Slug", attribute: "slug" do |entry|
     entry.slug
   end
 
-  g.column name: "标题" do |entry|
+  g.column name: "标题", attribute: "title" do |entry|
     entry.title
   end
 
-  g.column name: "作者" do |entry|
+  g.column name: "作者", model: "User", attribute: "username" do |entry|
     entry.user.username
+  end
+
+  g.column name: "创建日期", attribute: "created_at" do |entry|
+    entry.created_at.strftime("%Y-%m-%d %H:%m")
   end
 
   g.column do |entry|

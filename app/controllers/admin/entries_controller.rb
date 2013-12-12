@@ -9,7 +9,10 @@ class Admin::EntriesController < AdministratorController
   end
 
   def index
-    @entries_grid = initialize_grid Entry
+    @entries_grid = initialize_grid(Entry,
+                                    include: :user,
+                                    order: "created_at"
+                                   )
   end
 
   def create
