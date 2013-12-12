@@ -19,7 +19,7 @@ end
 namespace :deploy do
   task :stop do
     on roles(:app), :in => :sequence, :wait => 5 do
-      execute "pumactl -P #{current_path}/tmp/puma/pid stop"
+      execute "cd #{current_path} && ( bundle exec pumactl -P #{current_path}/tmp/puma/pid stop )"
     end
   end
 
@@ -28,7 +28,7 @@ namespace :deploy do
       # link puma state files from shared path
       execute "if [ ! -e '#{shared_path}/puma' ]; then mkdir -p #{shared_path}/puma; fi"
       execute "if [ ! -e '#{current_path}/tmp/puma' ]; then ln -s #{shared_path}/puma #{current_path}/tmp; fi"
-      execute "pumactl -P #{current_path}/tmp/puma/pid start"
+      execute "cd #{current_path} && ( bundle exec puma -d -C #{current_path}/config/puma.rb 2>&1 >> #{current_path}/log/puma.log )"
     end
   end
 
