@@ -13,7 +13,13 @@ describe Admin::SessionsController do
       expect(response).to redirect_to admin_login_path
     end
 
-    it "POST #create succeed" do
+    it "POST #create with email succeed" do
+      user = create(:user, password: "rspec_test_user")
+      post :create, :session => { username: user.email, password: "rspec_test_user" }
+      expect(response).to redirect_to admin_path
+    end
+
+    it "POST #create with username succeed" do
       user = create(:user, password: "rspec_test_user")
       post :create, :session => { username: user.username, password: "rspec_test_user" }
       expect(response).to redirect_to admin_path
