@@ -1,0 +1,26 @@
+<%= form_for [:admin, entry], html: { role: "form", class: "center-block" } do |f| %>
+
+  <% unless flash.empty? %>
+    <%= render_flash flash %>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, "标题" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :slug, "Slug" %>
+    <%= f.text_field :slug, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content, "正文内容" %>
+    <%= f.text_area :content, class: "form-control", rows: 15 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit entry.new_record? ? "添加" : "保存", class: "btn btn-primary col-xs-2 pull-right" %>
+  </div>
+
+<% end %>

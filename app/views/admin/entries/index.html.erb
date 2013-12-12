@@ -1,0 +1,28 @@
+<% unless flash.empty? %>
+  <%= render_flash flash %>
+<% end %>
+
+<%= grid(@entries_grid, show_filters: :always) do |g|
+
+  g.column name: "#" do |entry|
+    entry.id
+  end
+
+  g.column name: "Slug" do |entry|
+    entry.slug
+  end
+
+  g.column name: "标题" do |entry|
+    entry.title
+  end
+
+  g.column name: "作者" do |entry|
+    entry.user.username
+  end
+
+  g.column do |entry|
+    link_to("编辑", edit_admin_entry_path(entry), class: "btn btn-default btn-xs") +
+    link_to("删除", admin_entry_path(entry), method: :delete, class: "btn btn-danger btn-xs")
+  end
+
+end -%>

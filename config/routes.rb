@@ -11,12 +11,12 @@ FrancisBlog::Application.routes.draw do
     post "login" => "sessions#create"
     delete "logout" => "sessions#destroy"
 
-    resources :attachments
-    resources :entries, :expect => [:show]
+    resources :entries, expect: [:show]
+    resources :attachments, expect: [:update]
   end
 
   root :to => "home#index"
   get "feed" => "home#feed"
 
-  resources :entries, :only => [:show]
+  resources :entries, only: [:show]
 end
