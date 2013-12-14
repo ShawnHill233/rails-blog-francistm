@@ -16,6 +16,6 @@ describe Attachment do
   end
 
   context "public methods test" do
-    it "test Attachment.to_url"
+    it "Attachment.to_url"
   end
 end
