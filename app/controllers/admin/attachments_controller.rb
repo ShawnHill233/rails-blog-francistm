@@ -1,4 +1,8 @@
 class Admin::AttachmentsController < AdministratorController
+  def edit
+    @attachment = Attachment.find params[:id]
+  end
+
   def show
   end
 
@@ -10,6 +14,9 @@ class Admin::AttachmentsController < AdministratorController
   end
 
   def create
+  end
+
+  def update
   end
 
   def destroy

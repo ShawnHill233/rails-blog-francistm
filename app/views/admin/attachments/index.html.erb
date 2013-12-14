@@ -10,6 +10,10 @@
     attachment.id
   end
 
+  g.column name: "文件名", attribute: "file_key" do |attribute|
+    attribute.file_key
+  end
+
   g.column name: "作者", model: "User", attribute: "username" do |attachment|
     attachment.user.username
   end

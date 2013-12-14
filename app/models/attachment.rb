@@ -5,4 +5,7 @@ class Attachment < ActiveRecord::Base
 
   validates :file_key, presence: true
   validates :user, associated: true, presence: true
+
+  def to_url
+  end
 end

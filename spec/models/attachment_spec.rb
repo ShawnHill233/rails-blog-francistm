@@ -14,4 +14,8 @@ describe Attachment do
       expect(build(:attachment, :file_key => nil)).to have(1).errors_on(:file_key)
     end
   end
+
+  context "public methods test" do
+    it "test Attachment.to_url"
+  end
 end
