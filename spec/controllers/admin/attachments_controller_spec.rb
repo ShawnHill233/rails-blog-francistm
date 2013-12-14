@@ -11,4 +11,5 @@ describe Admin::AttachmentsController do
 
     it "POST #create"
     it "DELETE #destroy"
+  end
 end
