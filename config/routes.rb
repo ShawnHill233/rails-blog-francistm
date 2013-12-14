@@ -12,7 +12,7 @@ FrancisBlog::Application.routes.draw do
     delete "logout" => "sessions#destroy"
 
     resources :entries, except: [:show]
-    resources :attachments, except: [:update]
+    resources :attachments, except: [:new, :update]
   end
 
   root :to => "home#index"

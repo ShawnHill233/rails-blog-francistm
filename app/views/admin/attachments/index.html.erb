@@ -1,0 +1,26 @@
+<% content_for :page_title do %>附件管理<% end %>
+
+<% unless flash.empty? %>
+  <%= render_flash flash %>
+<% end %>
+
+<%= grid(@attachments_grid) do |g|
+
+  g.column name: "#", attribute: "id" do |attachment|
+    attachment.id
+  end
+
+  g.column name: "作者", model: "User", attribute: "username" do |attachment|
+    attachment.user.username
+  end
+
+  g.column name: "创建日期", attribute: "created_at" do |attachment|
+    attachment.created_at.strftime("%Y-%m-%d %H:%m")
+  end
+
+  g.column do |attachment|
+    link_to("编辑", edit_admin_attachment_path(attachment), class: "btn btn-default btn-xs") +
+    link_to("删除", admin_attachment_path(attachment), method: :delete, class: "btn btn-danger btn-xs")
+  end
+
+end -%>
