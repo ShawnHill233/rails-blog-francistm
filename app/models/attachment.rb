@@ -7,5 +7,6 @@ class Attachment < ActiveRecord::Base
   validates :user, associated: true, presence: true
 
   def to_url
+    "#{Settings.qiniu[:share_link]}/#{self.file_key}"
   end
 end

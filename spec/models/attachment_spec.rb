@@ -16,6 +16,9 @@ describe Attachment do
   end
 
   context "public methods test" do
-    it "Attachment.to_url"
+    it "Attachment.to_url" do
+      attachment = create(:attachment)
+      expect(attachment.to_url).to eq "#{Settings.qiniu[:share_link]}/#{attachment.file_key}"
+    end
   end
 end
