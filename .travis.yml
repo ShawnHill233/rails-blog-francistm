@@ -6,9 +6,6 @@ services: mysql
 bundler_args: --without development
 script:
   - bundle exec rspec spec
-before_script:
-  - mysql -e "create database francis_blog_test"
-  - mysql -e "create database francis_blog_development"
-  - mv ./config/database-travis.yml ./config/database.yml
-  - bundle exec rake db:migrate
-  - bundle exec rake db:test:prepare
+
+before_script: .travis.before_script
+secure: "UWkKU9VQrPvoQN3c+NRfIhTso+S2EqxcFjd3JGMud4V1bzFBI6BpQcTwYSUF01eVBlAETAdoUUgnnRMoKZjXR15nczMXgYuMwaSmZwahG+0s2phXCM83O10A/k93EtwO2Lo+bp9RymX3NiEHEgup6dtcaFxj4C9BGxerU6WCx1E="

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+mysql -e "create database francis_blog_test"
+mysql -e "create database francis_blog_development"
+
+# create Qiniu::RS initalizer
+touch ./config/initializers/qiniu-rs.rb
+echo 'Qiniu::RS.establish_connection! access_key: "' > ./config/initializers/qiniu-rs.rb
+echo $QINIU_AK > ./config/initializers/qiniu-rs.rb
+echo '", secret_key: "' > ./config/initializers/qiniu-rs.rb
+echo $QINIU_SK > ./config/initializers/qiniu-rs.rb
+echo '"' > ./config/initializers/qiniu-rs.rb
+
+# link travis database config file
+mv ./config/database-travis.yml ./config/database.yml
+
+# prepare the test database
+bundle exec rake db:migrate
+bundle exec rake db:test:prepare

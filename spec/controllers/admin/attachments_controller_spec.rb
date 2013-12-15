@@ -24,8 +24,6 @@ describe Admin::AttachmentsController do
       expect(response).to render_template "index"
     end
 
-    it "PUT #update"
-
     it "POST #create" do
       upload_file = Rack::Test::UploadedFile.new(Rails.root.join("spec", "files", "attachment.jpg"), "image/jpg")
       post :create, format: :json,
@@ -36,8 +34,15 @@ describe Admin::AttachmentsController do
       expect(json_response["file_key"]).to eq "attachment.jpg"
     end
 
-    it "DELETE #destroy" do
+    it "PUT #update" do
       attachment = create(:attachment, file_key: "attachment.jpg")
+      put :update, id: attachment, attachment: { file_key: "attachment-moved.jpg" }
+
+      expect(response).to redirect_to admin_attachments_path
+    end
+
+    it "DELETE #destroy" do
+      attachment = create(:attachment, file_key: "attachment-moved.jpg")
       delete :destroy, id: attachment
 
       expect(response).to redirect_to admin_attachments_path
