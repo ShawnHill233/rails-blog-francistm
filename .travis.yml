@@ -8,4 +8,7 @@ script:
   - bundle exec rspec spec
 
 before_script: bash .travis.before_script
-secure: "UWkKU9VQrPvoQN3c+NRfIhTso+S2EqxcFjd3JGMud4V1bzFBI6BpQcTwYSUF01eVBlAETAdoUUgnnRMoKZjXR15nczMXgYuMwaSmZwahG+0s2phXCM83O10A/k93EtwO2Lo+bp9RymX3NiEHEgup6dtcaFxj4C9BGxerU6WCx1E="
+
+env:
+  global:
+    - secure: "UWkKU9VQrPvoQN3c+NRfIhTso+S2EqxcFjd3JGMud4V1bzFBI6BpQcTwYSUF01eVBlAETAdoUUgnnRMoKZjXR15nczMXgYuMwaSmZwahG+0s2phXCM83O10A/k93EtwO2Lo+bp9RymX3NiEHEgup6dtcaFxj4C9BGxerU6WCx1E="
