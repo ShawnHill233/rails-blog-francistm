@@ -8,6 +8,7 @@ gem "sorcery", "~> 0.8.2"
 gem "qiniu-rs", "~> 3.4.6"
 gem "kramdown", "~> 1.3.0"
 gem "wice_grid", "~> 3.4.2"
+gem "rails_config", "~> 0.3.3"
 gem "jquery-ui-rails", "~> 4.1.0"
 gem "bootstrap-sass", "~> 3.0.3.0"
 
