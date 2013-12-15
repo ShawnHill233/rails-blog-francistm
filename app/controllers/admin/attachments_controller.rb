@@ -15,9 +15,8 @@ class Admin::AttachmentsController < AdministratorController
   end
 
   def create
-    @attachment = Attachment.new
+    @attachment = Attachment.new params[:attachment]
     @attachment.user_id = current_user.id
-    @attachment.attributes = params[:attachment]
 
     upload_result = false
     create_result = false
@@ -35,11 +34,7 @@ class Admin::AttachmentsController < AdministratorController
 
     respond_to do |format|
       format.json do
-        if create_result
-          render json: @attachment.to_json
-        else
-          render json: nil.to_json
-        end
+        render json: create_result ? @attachment : nil
       end
     end
   end
@@ -63,6 +58,18 @@ class Admin::AttachmentsController < AdministratorController
   end
 
   def destroy
+    @attachment = Attachment.find params[:id]
+
+    rs_result = Qiniu::RS.delete Settings.qiniu[:bucket_name],
+                                 @attachment.file_key
+
+    if rs_result
+      @attachment.destroy
+      flash[:success] = "文件删除成功"
+    else
+      flash[:danger] = "文件删除失败，请重试"
+    end
+    redirect_to admin_attachments_path
   end
 
   protected

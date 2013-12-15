@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :attachment do
     user
-    file_key { "attachment.jpg" }
+    file_key { Faker::Lorem.word }
   end
 end
