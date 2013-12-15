@@ -25,10 +25,8 @@ describe Admin::AttachmentsController do
     end
 
     it "POST #create" do
-      upload_file = Rack::Test::UploadedFile.new(Rails.root.join("spec", "files", "attachment.jpg"), "image/jpg")
       post :create, format: :json,
-                    file: upload_file,
-                    attachment: attributes_for(:attachment, file_key: "attachment.jpg")
+                    attachment: attributes_for(:attachment)
 
       json_response = JSON.parse(response.body)
       expect(json_response["file_key"]).to eq "attachment.jpg"

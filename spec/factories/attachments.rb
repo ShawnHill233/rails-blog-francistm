@@ -3,6 +3,12 @@
 FactoryGirl.define do
   factory :attachment do
     user
-    file_key { Faker::Lorem.word }
+    file_key { "attachment.jpg" }
+    file {
+      Rack::Test::UploadedFile.new(
+        Rails.root.join("spec", "files", "attachment.jpg"),
+        "image/jpg"
+      )
+    }
   end
 end
