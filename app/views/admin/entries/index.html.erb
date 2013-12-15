@@ -1,5 +1,3 @@
-<% content_for :page_title do %>日志管理<% end %>
-
 <% unless flash.empty? %>
   <%= render_flash flash %>
 <% end %>
@@ -10,8 +8,12 @@
     entry.id
   end
 
-  g.column name: "文件名", attribute: "file_key" do |entry|
-    entry.file_key
+  g.column name: "Slug", attribute: "slug" do |entry|
+    entry.slug
+  end
+
+  g.column name: "标题", attribute: "title" do |entry|
+    entry.title
   end
 
   g.column name: "作者", model: "User", attribute: "username" do |entry|
