@@ -15,23 +15,30 @@ class Admin::AttachmentsController < AdministratorController
   end
 
   def create
-    @attachment = Attachment.new params[:attachment]
+    @attachment = Attachment.new
+    @attachment.user_id = current_user.id
+    @attachment.attributes = params[:attachment]
 
+    upload_result = false
     create_result = false
-    upload_result = Qiniu::RS.upload_file uptoken: upload_token,
-                                          file: @attachment.file,
-                                          bucket: Settings.qiniu[:bucket_name],
-                                          key: @attachment.file_key
+
+    if @attachment.valid?
+      upload_result = Qiniu::RS.upload_file uptoken: upload_token,
+                                            file: params[:file].path,
+                                            key: @attachment.file_key,
+                                            bucket: Settings.qiniu[:bucket_name]
+    end
+
     if upload_result
       create_result = @attachment.save
     end
 
     respond_to do |format|
       format.json do
-        if upload_result
-          render json: @attachment
+        if create_result
+          render json: @attachment.to_json
         else
-          render json: [nil]
+          render json: nil.to_json
         end
       end
     end
@@ -61,7 +68,6 @@ class Admin::AttachmentsController < AdministratorController
   protected
 
   def upload_token
-    Qiniu::RS.genrate_upload_token scope: Settings.qiniu[:bucket_name],
-                                   customer: current_user.id
+    Qiniu::RS.generate_upload_token scope: Settings.qiniu[:bucket_name]
   end
 end
