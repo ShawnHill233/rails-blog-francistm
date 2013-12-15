@@ -1,2 +1,3 @@
 qiniu:
   bucket_name: "francis-blog"
+  share_link: "http://francis-blog.u.qiniudn.com"
