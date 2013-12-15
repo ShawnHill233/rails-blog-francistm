@@ -47,7 +47,7 @@ class Attachment < ActiveRecord::Base
 
   private
 
-  # 更具当前的空间名和时间生成上传Token
+  # 根据当前的空间名和时间生成上传Token
   def upload_token 
     Qiniu::RS.generate_upload_token scope: Settings.qiniu[:bucket_name]
   end
