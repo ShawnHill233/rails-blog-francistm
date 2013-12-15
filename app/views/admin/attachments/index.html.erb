@@ -22,6 +22,10 @@
     attachment.created_at.strftime("%Y-%m-%d %H:%m")
   end
 
+  g.column name: "外链" do |attachment|
+    link_to "链接地址", attachment.to_url
+  end
+
   g.column do |attachment|
     link_to("编辑", edit_admin_attachment_path(attachment), class: "btn btn-default btn-xs") +
     link_to("删除", admin_attachment_path(attachment), method: :delete, class: "btn btn-danger btn-xs")
