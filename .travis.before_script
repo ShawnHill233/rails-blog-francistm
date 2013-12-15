@@ -11,6 +11,8 @@ echo '", secret_key: "' > ./config/initializers/qiniu-rs.rb
 echo $QINIU_SK > ./config/initializers/qiniu-rs.rb
 echo '"' > ./config/initializers/qiniu-rs.rb
 
+cat ./config/initializers/qiniu-rs.rb
+
 # link travis database config file
 mv ./config/database-travis.yml ./config/database.yml
 
