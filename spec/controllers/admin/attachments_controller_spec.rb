@@ -25,7 +25,14 @@ describe Admin::AttachmentsController do
     end
 
     it "PUT #update"
-    it "POST #create"
+
+    it "POST #create" do
+      attachment = create(:attachment, file_key: "attachment.jpg")
+      post :create, attachment: attachment, format: :json
+
+      expect(response.body).to eq attachment.to_json
+    end
+
     it "DELETE #destroy"
   end
 end
