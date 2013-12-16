@@ -13,6 +13,7 @@ namespace :symlink do
     on roles(:app), :in => :sequence, :wait => 5 do
       execute "if [ ! -e '#{release_path}/config/database.yml' ]; then ln -s #{shared_path}/database.yml #{release_path}/config; fi"
       execute "if [ ! -e '#{release_path}/config/initializers/qiniu-rs.rb' ]; then ln -s #{shared_path}/qiniu-rs.rb #{release_path}/config/initializers; fi"
+      execute "if [ !- e '#{release_path}/config/initializers/secret_token.rb' ]; then ls -s #{shared_path}/secret_token.rb #{release_path}/config/initializers; fi"
     end
   end
 end
