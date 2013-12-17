@@ -1,5 +1,9 @@
 #encoding: utf-8
 class Admin::AttachmentsController < AdministratorController
+  def new
+    @attachment = Attachment.new
+  end
+
   def edit
     @attachment = Attachment.find params[:id]
   end
@@ -18,8 +22,20 @@ class Admin::AttachmentsController < AdministratorController
     respond_to do |format|
       if @attachment.valid? and @attachment.save
         format.json { render json: @attachment }
+
+        format.html do
+          flash[:success] = "附件上传成功"
+          redirect_to admin_attachments_path
+        end
+
       else
         format.json { render json: nil }
+
+        format.html do
+          flash[:danger] = "附件上传失败，请重试"
+          render "new"
+        end
+
       end
     end
   end

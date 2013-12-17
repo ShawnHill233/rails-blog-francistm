@@ -7,6 +7,11 @@ describe Admin::AttachmentsController do
   end
 
   context "will render correct views" do
+    it "GET #new" do
+      get :new
+      expect(response).to render_template "new"
+    end
+
     it "GET #show" do
       attachment = create(:attachment)
       get :show, :id => attachment

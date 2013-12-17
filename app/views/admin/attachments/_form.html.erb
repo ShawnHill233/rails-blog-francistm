@@ -9,13 +9,22 @@
     <%= f.text_field :file_key, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <label for="">地址</label>
-    <p><%= link_to attachment.to_url, attachment.to_url %></p>
-  </div>
+  <% if attachment.new_record? %>
+    <div class="form-group">
+      <%= f.label :file, "选择文件" %>
+      <%= f.file_field :file %>
+    </div>
+  <% end %>
+
+  <% unless attachment.new_record? %>
+    <div class="form-group">
+      <label for="">地址</label>
+      <p><%= link_to attachment.to_url, attachment.to_url %></p>
+    </div>
+  <% end %>
 
   <div class="form-group">
-    <%= f.submit "更新", class: "btn btn-primary pull-right" %>
+    <%= f.submit attachment.new_record? ? "上传" : "更新", class: "btn btn-primary pull-right" %>
   </div>
 
 <% end %>
