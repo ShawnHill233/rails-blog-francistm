@@ -1,3 +1,3 @@
 qiniu:
-  bucket_name: "francis-blog-test"
-  share_link: "http://francis-blog-test.u.qiniudn.com"
+  bucket_name: "qtestbucket"
+  share_link: "http://qtestbucket.b1.qiniudn.com"
