@@ -14,5 +14,5 @@ echo "Qiniu::RS.establish_connection! access_key: '$QINIU_AK', secret_key: '$QIN
 mv ./config/database-travis.yml ./config/database.yml
 
 # prepare the test database
-bundle exec rake db:migrate
+bundle exec rake db:schema:load
 bundle exec rake db:test:prepare
