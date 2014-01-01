@@ -24,9 +24,12 @@ a {
   text-decoration: none;
 }
 
+body { position: relative }
+
 div#container {
   width: 720px;
   margin: 0 auto;
+  position: relative;
   padding-bottom: 30px;
   font-family: helvetica;
 
@@ -64,4 +67,12 @@ div#container {
       margin-bottom: 25px;
     }
   }
+}
+
+#fork_me {
+  top: 0;
+  right: 0;
+  width: 149px;
+  height: 149px;
+  position: fixed;
 }
