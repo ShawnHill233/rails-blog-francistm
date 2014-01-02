@@ -11,7 +11,8 @@ class Admin::EntriesController < AdministratorController
   def index
     @entries_grid = initialize_grid(Entry,
                                     include: :user,
-                                    order: "created_at"
+                                    order: "created_at",
+                                    order_direction: "desc"
                                    )
   end
 
