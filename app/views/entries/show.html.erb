@@ -11,7 +11,7 @@
       <div class="clear"></div>
 
       <div id="mkd_wrap" class="content mkd"></div>
-      <textarea id="mkd_src" class="mkd_src_wrap"><%= sanitize @entry.content.html_safe -%></textarea>
+      <textarea id="mkd_src" class="mkd_src_wrap"><%= raw @entry.content.html_safe -%></textarea>
     </div>
   </div>
 </div>
