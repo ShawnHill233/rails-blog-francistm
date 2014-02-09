@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/francistm/rails-blog.png?branch=master)](https://travis-ci.org/francistm/rails-blog)
 
 ## 简介
-构架于 Ruby on Rail 3.2，数据库部分采用MySQL。（尚未重构完成)  
+构架于 Ruby on Rail 3.2，数据库部分采用MySQL。  
 文件上传部分基于[七牛云存储](http://www.qiniu.com/)服务，请前往其网站申请账号。
 
 由于对RoR不是很了解，所以没有支持主题功能，修改样式需完全重构视图文件和CSS样式表。

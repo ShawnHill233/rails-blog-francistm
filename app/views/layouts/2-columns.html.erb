@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag "2-columns", :media => "all" %>
   <%= javascript_include_tag "2-columns" %>
   <%= csrf_meta_tags %>
+  <meta name="renderer" content="webkit|ie-stand">
   <%= auto_discovery_link_tag :rss, feed_path(format: "xml", only_path: false) %>
 </head>
 <body>
@@ -34,12 +35,6 @@
 
     <div class="clear"></div>
   </div> <!-- container end -->
-
-  <div id="fork_me">
-    <%= link_to "https://github.com/francistm/rails-blog" do
-      image_tag "fork-me.png"
-    end %>
-  </div>
 
   <% if content_for?(:jquery_ready) %>
     <script type="text/javascript">
