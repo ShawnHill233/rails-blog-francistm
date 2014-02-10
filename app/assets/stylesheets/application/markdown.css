@@ -47,9 +47,9 @@
     font-size: 12px;
     padding: 2px 4px;
     margin: 2px 4px;
-    background: #eee;
     border-radius: 2px;
     display: inline-block;
+    background-color: #f9f9f9;
     font-family: monospace, serif;
 }
 
@@ -73,9 +73,15 @@
     list-style: decimal outside;
 }
 
+.mkd ul,
+.mkd ol {
+  margin: 30px auto;
+}
+
 .mkd ul li,
 .mkd ol li {
-    margin: 10px auto;
+  font-size: 12px;
+  margin: 10px auto;
 }
 
 .mkd blockquote {
