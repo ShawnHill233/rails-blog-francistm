@@ -4,6 +4,10 @@ describe Admin::AttachmentsController do
   before :each do
     @user = create(:user)
     login_user @user
+
+    Qiniu::RS.stub(:move).and_return(true)
+    Qiniu::RS.stub(:delete).and_return(true)
+    Qiniu::RS.stub(:upload_file).and_return(true)
   end
 
   context "will render correct views" do

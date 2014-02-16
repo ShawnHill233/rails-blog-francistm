@@ -16,6 +16,12 @@ describe Attachment do
   end
 
   context "public methods test" do
+    before :each do
+      Qiniu::RS.stub(:move).and_return(true)
+      Qiniu::RS.stub(:delete).and_return(true)
+      Qiniu::RS.stub(:upload_file).and_return(true)
+    end
+
     it "Attachment.to_url" do
       attachment = create(:attachment)
       expect(attachment.to_url).to eq "#{Settings.qiniu[:share_link]}/#{attachment.file_key}"
