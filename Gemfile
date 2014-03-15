@@ -11,6 +11,7 @@ gem "wice_grid", "~> 3.4.2"
 gem "rails_config", "~> 0.3.3"
 gem "jquery-ui-rails", "~> 4.1.0"
 gem "bootstrap-sass", "~> 3.0.3.0"
+gem "rails-settings-cached", "0.2.4"
 
 group :test do
   gem "faker", "~> 1.1.2"

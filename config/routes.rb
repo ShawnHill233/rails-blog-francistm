@@ -11,6 +11,9 @@ FrancisBlog::Application.routes.draw do
     post "login" => "sessions#create"
     delete "logout" => "sessions#destroy"
 
+    get "settings/stat" => "settings#stat"
+    put "settings/stat" => "settings#stat_update"
+
     resources :attachments
     resources :entries, except: [:show]
   end
