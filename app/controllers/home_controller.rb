@@ -4,14 +4,19 @@ class HomeController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml do
-        render :layout => false,
-               :content_type => "application/rss+xml"
-      end
+      format.xml { render content_type: "application/rss+xml" }
     end
   end
 
   def index
     @count = Entry.count
+  end
+
+  def sitemap
+    @entry = Entry
+
+    respond_to do |format|
+      format.xml { render content_type: "application/xml" }
+    end
   end
 end

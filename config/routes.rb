@@ -20,6 +20,7 @@ FrancisBlog::Application.routes.draw do
 
   root :to => "home#index"
   get "feed" => "home#feed"
+  get "sitemap" => "home#sitemap"
 
   resources :entries, only: [:show]
 end
