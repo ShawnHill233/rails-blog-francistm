@@ -3,7 +3,6 @@ source "https://rubygems.org"
 gem "jquery-rails"
 
 gem "rails", "3.2.14"
-gem "mysql2", "0.3.11"
 gem "sorcery", "~> 0.8.2"
 gem "qiniu-rs", "~> 3.4.6"
 gem "kramdown", "~> 1.3.0"
@@ -12,6 +11,8 @@ gem "rails_config", "~> 0.3.3"
 gem "jquery-ui-rails", "~> 4.1.0"
 gem "bootstrap-sass", "~> 3.0.3.0"
 gem "rails-settings-cached", "0.2.4"
+
+gem "mysql2", "0.3.11", platform: :ruby
 
 group :test do
   gem "faker", "~> 1.1.2"
@@ -24,7 +25,7 @@ group :assets do
 end
 
 group :production do
-  gem "puma", "~> 2.0.0", :platforms => :ruby
+  gem "puma", "~> 2.0.0", platforms: :ruby
 end
 
 group :test, :development do
